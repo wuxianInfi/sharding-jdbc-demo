@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  tomcat:
+    maxThreads: 200
+    uriEncoding: UTF-8
+spring:
+  datasource:
+    dbUrls:
+      order_db0:
+        masterUrl: jdbc:mysql://127.0.0.1:3306/order_db0
+        slaveUrls: jdbc:mysql://127.0.0.1:3306/order_db0_slave0
+      order_db1:
+        masterUrl: jdbc:mysql://127.0.0.1:3306/order_db1
+        slaveUrls: jdbc:mysql://127.0.0.1:3306/order_db1_slave0
+    username: root
+    password: admin

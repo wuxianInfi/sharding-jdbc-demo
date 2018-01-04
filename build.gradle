@@ -1,0 +1,47 @@
+buildscript {
+
+  repositories {
+  	jcenter()
+    maven { url 'http://repo.spring.io/plugins-release' }
+    mavenCentral()
+  }
+  dependencies { classpath 'io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE' }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.infi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories { 
+	jcenter()
+	mavenCentral() 
+}
+
+dependencyManagement { imports { mavenBom 'io.spring.platform:platform-bom:Brussels-SR6' } }
+
+dependencies {
+  compile 'org.projectlombok:lombok'
+  compile 'org.apache.commons:commons-lang3'
+  compile 'commons-codec:commons-codec'
+  compile 'commons-io:commons-io'
+  compile 'com.google.guava:guava'
+  compile 'org.slf4j:slf4j-api'
+  compile 'org.aspectj:aspectjrt'
+  compile 'org.aspectj:aspectjweaver'
+  compile 'org.springframework:spring-tx'
+  compile 'org.springframework:spring-jdbc'
+  compile 'javax.inject:javax.inject'
+  compile 'com.alibaba:druid:1.0.28'
+  compile 'mysql:mysql-connector-java:5.1.40'
+  compile 'org.mybatis:mybatis:3.4.0'
+  compile 'org.mybatis:mybatis-spring:1.3.0'
+  compile 'com.github.miemiedev:mybatis-paginator:1.2.10'
+  compile 'io.shardingjdbc:sharding-jdbc-core:2.0.0'
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
